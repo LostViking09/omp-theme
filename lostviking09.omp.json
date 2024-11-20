@@ -216,7 +216,7 @@
           "properties": {
             "cache_duration": "none"
           },
-          "template": "\u2570\u2500",
+          "template": "asasd\u2570\u2500",
           "foreground": "#D6DEEB",
           "type": "text",
           "style": "plain"
