@@ -10,7 +10,7 @@
     "foreground": "#FEF5ED",
     "background": "transparent"
   },
-  "console_title_template": "{{ if .Root }}root @ {{ end }}{{ .Shell }} in {{ .Folder }}",
+  "console_title_template": "{{ if .Root }}root @ {{ end }}{{ .Shell }} @ {{ .Folder }}",
   "blocks": [
     {
       "type": "prompt",
@@ -65,6 +65,14 @@
           "style": "powerline"
         },
         {
+          "template": " {{ if .SSHSession }}\udb82\udcb9 {{ .UserName}} {{else}}\uf007 {{ .UserName }} {{ end }}",
+          "foreground": "#D6DEEB",
+          "powerline_symbol": "\ue0b0",
+          "background": "#03DED3",
+          "type": "session",
+          "style": "powerline"
+        },
+        {
           "properties": {
             "cache_duration": "none"
           },
@@ -110,62 +118,25 @@
           "style": "powerline"
         },
         {
-          "type": "connection",
-          "style": "powerline",
           "template": " {{ if eq .Type \"wifi\"}}\uf1eb  {{.Name}}{{ else if eq .Type \"ethernet\"}}\ueba9  {{.Name}}{{ end }}  ",
-          "background": "#8822ee",
           "foreground": "#222222",
-          "powerline_symbol": "\ue0b0"
+          "powerline_symbol": "\ue0b0",
+          "background": "#8822ee",
+          "type": "connection",
+          "style": "powerline"
         },
         {
-          "type": "upgrade",
-          "style": "powerline",
-          "foreground": "#111111",
-          "background": "#FFD664",
-          "powerline_symbol": "\ue0b0",
           "properties": {
             "cache_duration": "168h"
-          }
+          },
+          "foreground": "#111111",
+          "powerline_symbol": "\ue0b0",
+          "background": "#FFD664",
+          "type": "upgrade",
+          "style": "powerline"
         }
       ],
       "newline": true
-    },
-    {
-      "type": "prompt",
-      "alignment": "right",
-      "segments": [
-        {
-          "properties": {
-            "always_enabled": true,
-            "cache_duration": "none"
-          },
-          "leading_diamond": "\ue0b6",
-          "template": "  {{ if gt .Code 0 }}\uf00d{{ else }}\uf00c{{ end }}  ",
-          "foreground": "#414141",
-          "background": "#03DED3",
-          "type": "status",
-          "style": "diamond",
-          "foreground_templates": [
-            "{{ if gt .Code 0 }}#D6DEEB{{ end }}"
-          ],
-          "background_templates": [
-            "{{ if gt .Code 0 }}#E44141{{ end }}"
-          ]
-        },
-        {
-          "properties": {
-            "cache_duration": "none",
-            "style": "roundrock",
-            "threshold": 0
-          },
-          "trailing_diamond": "\ue0b4",
-          "template": " \uf252 {{ .FormattedMs }} ",
-          "foreground": "#D6DEEB",
-          "background": "#575656",
-          "type": "executiontime",
-          "style": "diamond"
-        }
-      ]
     },
     {
       "type": "prompt",
@@ -216,7 +187,7 @@
           "properties": {
             "cache_duration": "none"
           },
-          "template": "asasd\u2570\u2500",
+          "template": "\u2570\u2500",
           "foreground": "#D6DEEB",
           "type": "text",
           "style": "plain"
@@ -229,10 +200,32 @@
           "template": "❯ ",
           "foreground": "#D6DEEB",
           "type": "status",
-          "style": "plain"
+          "style": "plain",
+          "foreground_templates": [
+            "{{if .Root}}#EF541C{{else}}#D6DEEB{{end}}"
+          ]
         }
       ],
       "newline": true
+    }
+  ],
+  "tooltips": [
+    {
+      "properties": {
+        "fetch_status": true,
+        "fetch_upstream_icon": true
+      },
+      "leading_diamond": "\ue0b6",
+      "trailing_diamond": "\ue0b4",
+      "template": "{{ .HEAD }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}",
+      "foreground": "#193549",
+      "background": "#fffb38",
+      "type": "git",
+      "style": "diamond",
+      "tips": [
+        "git",
+        "g"
+      ]
     }
   ],
   "version": 3
