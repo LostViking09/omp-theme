@@ -51,7 +51,11 @@
           "powerline_symbol": "\ue0b0",
           "background": "#00C7FC",
           "type": "shell",
-          "style": "powerline"
+          "style": "powerline",
+          "background_templates" : [
+            "{{ if eq .Shell \"pwsh\" }}#00C7FC{{ else }}{{ end }}",
+            "{{ if eq .Shell \"bash\" }}#88b64c{{ else }}{{ end }}"
+          ]
         },
         {
           "properties": {
