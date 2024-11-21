@@ -69,7 +69,7 @@
           "style": "powerline"
         },
         {
-          "template": " {{ if .SSHSession }}\udb82\udcb9 {{ .HostName}}\uf007 {{ .UserName }} {{else}}\uf007 {{ .UserName }} {{ end }}",
+          "template": " {{ if .SSHSession }}\udb82\udcb9 {{ .HostName}} \uf007 {{ .UserName }} {{else}}\uf007 {{ .UserName }} {{ end }}",
           "foreground": "#D6DEEB",
           "powerline_symbol": "\ue0b0",
           "background": "#03DED3",
