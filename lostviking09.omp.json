@@ -1,5 +1,8 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "palette":{
+    "foreground": "#011627"
+  },
   "secondary_prompt": {
     "template": "\u2570\u2500❯ ",
     "foreground": "#D6DEEB",
@@ -47,7 +50,7 @@
             "cache_duration": "none"
           },
           "template": " \uf489 {{ .Name }} ",
-          "foreground": "#011627",
+          "foreground": "p:foreground",
           "powerline_symbol": "\ue0b0",
           "background": "#00C7FC",
           "type": "shell",
@@ -62,7 +65,7 @@
             "cache_duration": "none"
           },
           "template": " \uf09c admin ",
-          "foreground": "#D6DEEB",
+          "foreground": "p:foreground",
           "powerline_symbol": "\ue0b0",
           "background": "#EF541C",
           "type": "root",
@@ -70,7 +73,7 @@
         },
         {
           "template": " {{ if .SSHSession }}\udb82\udcb9 {{ .HostName}} \uf007 {{ .UserName }} {{else}}\uf007 {{ .UserName }} {{ end }}",
-          "foreground": "#D6DEEB",
+          "foreground": "p:foreground",
           "powerline_symbol": "\ue0b0",
           "background": "#03DED3",
           "type": "session",
@@ -81,7 +84,7 @@
             "cache_duration": "none"
           },
           "template": " \ue61e \ue61d cmake {{ .Full }} ",
-          "foreground": "#E8EAEE",
+          "foreground": "p:foreground",
           "powerline_symbol": "\ue0b0",
           "background": "#1E9748",
           "type": "cmake",
@@ -93,7 +96,7 @@
             "display_mode": "context"
           },
           "template": " \ue73c {{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }} ",
-          "foreground": "#011627",
+          "foreground": "p:foreground",
           "powerline_symbol": "\ue0b0",
           "background": "#FFDE57",
           "type": "python",
@@ -123,7 +126,7 @@
         },
         {
           "template": " {{ if eq .Type \"wifi\"}}\uf1eb  {{.Name}}{{ else if eq .Type \"ethernet\"}}\ueba9  {{.Name}}{{ end }}  ",
-          "foreground": "#222222",
+          "foreground": "p:foreground",
           "powerline_symbol": "\ue0b0",
           "background": "#8822ee",
           "type": "connection",
@@ -133,7 +136,7 @@
           "properties": {
             "cache_duration": "168h"
           },
-          "foreground": "#111111",
+          "foreground": "p:foreground",
           "powerline_symbol": "\ue0b0",
           "background": "#FFD664",
           "type": "upgrade",
@@ -236,5 +239,6 @@
       ]
     }
   ],
-  "version": 3
+  "version": 3,
+  "shell_integration": true
 }
