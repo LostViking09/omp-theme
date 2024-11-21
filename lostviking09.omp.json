@@ -137,7 +137,11 @@
           "powerline_symbol": "\ue0b0",
           "background": "#FFD664",
           "type": "upgrade",
-          "style": "powerline"
+          "style": "powerline",
+          "properties": {
+            "cache_duration": "24h"
+          },
+          "template": "{{ .Current}} \uf019 {{ .Latest }}"
         }
       ],
       "newline": true
