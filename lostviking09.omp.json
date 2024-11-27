@@ -144,7 +144,7 @@
           "properties": {
             "cache_duration": "24h"
           },
-          "template": "{{ .Current}} \uf019 {{ .Latest }}"
+          "template": " {{ .Current}} \uf019 {{ .Latest }} "
         }
       ],
       "newline": true
