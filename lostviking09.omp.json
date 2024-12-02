@@ -9,7 +9,7 @@
     "background": "transparent"
   },
   "transient_prompt": {
-    "template": "\ue285 ",
+    "template": "\ue285 {{ .Shell }}",
     "foreground": "#FEF5ED",
     "background": "transparent"
   },
@@ -133,9 +133,6 @@
           "style": "powerline"
         },
         {
-          "properties": {
-            "cache_duration": "168h"
-          },
           "foreground": "p:foreground",
           "powerline_symbol": "\ue0b0",
           "background": "#FFD664",
